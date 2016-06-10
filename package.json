@@ -6,9 +6,13 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "events": "^1.1.0",
     "native-base": "^0.4.5",
+    "parse": "^1.8.5",
+    "parse-react": "^0.5.2",
     "react": "^15.1.0",
     "react-native": "^0.27.1",
-    "react-native-vector-icons": "^2.0.3"
+    "react-native-vector-icons": "^2.0.3",
+    "parse": "1.6.14"
   }
 }
