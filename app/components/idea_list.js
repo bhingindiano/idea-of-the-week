@@ -2,13 +2,6 @@
 import React from 'react';
 import {List, ListItem, Text} from 'native-base';
 
-var Parse = require('parse/react-native');
-var ParseReact = require('parse-react/react-native');
-var ParseComponent = ParseReact.Component(React);
-
-Parse.initialize('TEST_APP_ID');
-Parse.serverURL = 'http://ec2-52-31-249-67.eu-west-1.compute.amazonaws.com:1337/parse';
-
 class IdeaList extends ParseComponent {
     constructor(props) {
         super(props);
@@ -16,7 +9,7 @@ class IdeaList extends ParseComponent {
 
     observe(props, state) {
       return {
-        ideas: new Parse.Query("Idea")
+        ideas: new this.props.parse.Query('Idea').addDescending('updatedAt')
       };
     }
 

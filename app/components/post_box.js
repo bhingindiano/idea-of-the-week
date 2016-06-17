@@ -2,13 +2,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
-import {Container, Content, InputGroup, Input, Button, List, ListItem, Text} from 'native-base';
-import { Col, Row, Grid } from "react-native-easy-grid";
-
-let Parse = require('parse/react-native');
-
-Parse.initialize('TEST_APP_ID');
-Parse.serverURL = 'http://ec2-52-31-249-67.eu-west-1.compute.amazonaws.com:1337/parse';
+import {Container, Content, InputGroup, Input, Button, Text} from 'native-base';
 
 const styles = {
     content: {
@@ -30,7 +24,7 @@ const styles = {
 class PostBox extends Component {
     constructor(props) {
         super(props);
-        IdeaObject = Parse.Object.extend("Idea");
+        IdeaObject = this.props.parse.Object.extend("Idea");
 
         this.state = {
             description: null
@@ -48,6 +42,7 @@ class PostBox extends Component {
         return (
             <Container>
                 <Content style={styles.content}>
+                    <Text>Post your idea no matter how crazy it sounds</Text>
                     <InputGroup style={styles.input} borderType="regular">
                        <Input multiline={true}
                               onChangeText={(text) => this.setState({description: text})}/>
